@@ -1,0 +1,392 @@
+
+1. Iniciar una sesión de trabajo en GNU-Linux. 
+2. Abra una terminal. 
+3. Muestre el árbol de directorios de su home (tree). 
+4. Sitúese en el directorio de la asignatura “Lenguajes y Paradigmas de Programación” esto es 
+en el directorio LPP (cd LPP). 
+5. Muestre el contenido del directorio actual (ls -la). 
+6. Cree un nuevo directorio denominado prct03 (mkdir prct03). Este será el directorio de trabajo 
+durante la realización de esta práctica. 
+7. Sitúese en el directorio prct03 (cd prct03) 
+8. Ponga el directorio prct03 bajo el control de versiones, es decir, cree un repositorio git (git init). 
+9. Cree un ﬁchero de texto, respuestas.txt, en el que responda las preguntas de esta práctica de 
+laboratorio. 
+10. Añada todo el contenido del directorio prct03 al índice del repositorio git. ( git add . ) 
+11. Conﬁrme los cambios del índice en el repositorio git local. ( git commit -m "1ra version" ) 
+12. Cree un repositorio en GitHub con el nombre prct03.
+13. Muestre los epositorios remotos. ( git remote -v ) 
+14. Cree un repositorio remoto con nombre corto origin 
+( git remote add origin git@github.com:aluXXXXXXXX/prct03.git ) 
+15. Empuje los cambios en el repositorio remoto denominado origin. 
+( git push -u origin master ) 
+16. Muestre la versión del intérprete de Ruby disponible (ruby -v) 
+117. A diferencia de los lenguajes compilados, existen dos formas de ejecutar Ruby. Se pueden crear 
+ﬁcheros y ejecutarlos con el intérprete como se hizo en la práctica de laboratorio anterior, y también, se puede introducir el código de forma interactiva. Ejecute el Ruby interactivo (Interactive 
+Ruby) (irb) 
+18. Escriba el programa que muestra por la consola la frase "Hola Mundo". ¿Qué signiﬁcado tiene 
+la salida? (puts ’Hola Mundo’) 
+
+2.0.0p247 :001 > puts 'Hola Mundo'
+Hola Mundo
+ => nil 
+
+ puts determina la salida por la pantalla. En Ruby todos devuelve un resultado un valor, y puts devuelve nils.
+
+19. Salga de la sesión interactiva. Para ello escriba el caracter de ﬁnal del ﬁchero del sistema operativo. (Ctrl + D) 
+
+20. Para realizar los siguientes ejercicios utilice el intérprete interactivo. Copie manualmente los 
+comandos. No corte y pegue desde el ﬁchero pdf, esto puede introducir carácteres extraños e 
+invisibles dependiendo de la codiﬁcación que se esté utilizando. 
+21. ¿Qué diferencia hay entre "\t\n" y ’\t\n’? 
+
+La comilla doble interpola, por lo que aparece el tabulador (\t) y el salto de linea (\n)
+La comilla simple sin embargo, no interpola y la salida es, literalmente, \t\n
+
+2.0.0p247 :004 > puts "\t\n"
+	
+ => nil 
+2.0.0p247 :005 > puts '\t\n'
+\t\n
+ => nil 
+
+
+22. ¿Cómo funciona %q? ¿Qué es %q{hello world\n}? ¿Qué es %q{’a’ ’b’ ’c’}? 
+
+Funciona igual que las comillas simples, no interpolando el salto de línea 
+
+  2.0.0p247 :008 > puts %q{Hello world\n}
+Hello world\n
+ => nil 
+ 
+ En el segundo caso, aparecen las letras entre comillas simples. Al estar entre %q{}
+ pueden aparecer las comillas como caracteres
+ 
+ 2.0.0p247 :010 > puts %q{'a' 'b' 'c'}
+'a' 'b' 'c'
+
+
+
+23. ¿Cómo funciona %Q? ¿Qué es %Q{hello world\n}? ¿Qué es %Q{"a" "b" "c"}? 
+
+  Funciona como las comillas dobles, interpolando. En el primer caso, aparece el salto de línea
+  En el segundo, el resultado es el mismo
+  
+24. ¿Qué queda en c? 
+irb(main):001:0> a = 4 
+=> 4 
+irb(main):002:0> b =2 
+=> 2 
+irb(main):003:0> c = <<HERE 
+irb(main):004:0" --#{a}-- 
+irb(main):005:0" --#{b}-- 
+irb(main):006:0" HERE 
+
+Con HERE almacenamos en c una cadena multilinea, que será --#{4}--\n--#{2}--\n,
+siendo 4 y 2 los valores interpolados de a y b y \n los saltos de linea.
+Con HERE se finaliza la introduccion. 
+La etiqueta HERE puede ser cualquier palabra.
+
+25. ¿Qué queda en c? 
+irb(main):001:0> a = 4 
+=> 4 
+irb(main):002:0> b =2 
+=> 2 
+irb(main):008:0> c = <<’HERE’ 
+irb(main):009:0’ --#{a}-- 
+irb(main):010:0’ --#{b}-- 
+irb(main):011:0’ HERE 
+
+Al poner la etiqueta 'HELLO' entre comillas simples, la cadena que se almacena en
+c estará entre comillas simples por lo que no se interpolará y el contenido será
+"--\#{a}--\n--\#{b}--\n"
+
+26. s = "hello". ¿Cuál es el valor de las siguientes expresiones? 
+s[0,2]  he (2 posiciones desde la posición 0)
+s[-1,1]  o (Las posiciones negativas comienzan desde el final, desde el final, una posición)
+s[0,10]  hello (Desde la posición 0, 10 posiciones, sin embargo la cadena solo tiene 5,
+así que saca lacadena uan vez)
+
+27. ¿Qué queda en g? 
+>> g = "hello" 
+=> "hello" 
+>> g << " world" 
+
+Queda "hello world", el operador << concatena la cadena que se le pasa a lo que ya 
+contenía la variable.
+
+28. ¿Qué queda en e? 
+>> e = ’.’*3 
+
+2.0.0p247 :050 > e = '.'*3
+ => "..." 
+
+ El resultado de multiplicar una cadena por un entero es repetir dicha cadena tantas veces
+
+29. ¿Cuál es el resultado? 
+>> a = 1 
+=> 1 
+>> "#{a=a+1} "*3 
+
+2.0.0p247 :054 > "#{a=a+1} "*3
+ => "2 2 2 " 
+
+ Al poner "#{a=a+1}", #{} interpola y realiza la operación, mientras que " " considera
+ el resultado de la operacion como una cadena, y al multiplicarla, se repite 3 veces.
+
+30. ¿Qué es esto? %w[this is a test] 
+
+Al realizar esto, creamos un array, cuyos elementos serán ["this", "is", "a", "test"],
+por lo que es el espacio en blanco lo que delimita los elementos.
+
+31. ¿Qué es esto? %w[\t \n] 
+
+32. ¿Qué es esto? %W[\t \n] 
+
+33. ¿Qué contiene nils? nils = Array.new(3) 
+
+34. ¿Qué contiene zeros? zeros = Array.new(3, 0) 
+
+35. ¿Qué queda en b? 
+>> x = [[1,2],[3,4]] 
+=> [[1, 2], [3, 4]] 
+>> b = Array.new(x) 
+
+Un array copia al array x, al pasarle un array al constructor, se copia el array pasado.
+
+36. ¿Qué queda en c? 
+>> c = Array.new(3) { |i| 2*i } 
+
+Un array de 3 posiciones, donde cada una contiene el valor de su posición multiplicado
+por 2. [0, 2, 4]
+
+37. ¿Cuál es el resultado de cada una de estas operaciones? 
+>> a = (’a’..’e’).to_a 
+=> ["a", "b", "c", "d", "e"] 
+>> a[1,1]  (Desde la pos 1, un elemento)
+=>  ["b"]
+>> a[-2,2]  (Desde la posicion penultima, 2 elementos)
+=>  ["d", "e"]
+>> a[0..2]  (Desde la posicion 0 a la posicion 2)
+=> ["a", "b", "c"]
+>> a[0...1]  (Desde la posicion 0 a la 1 (1 no incluido) )
+=>  ["a"]
+>> a[-2..-1]  (De la penultima a la ultima)
+=>  ["d", "e"]
+38. ¿Cuál es el resultado de cada una de estas operaciones? 
+>> a 
+=> ["a", "b", "c", "d", "e"] 
+>> a[0,2] = %w{A B} (Iguala el array a[0,2] al array %{A B}, sobreescribiendo lo que habia)
+=> ["A", "B"] 
+>> a
+=>  ["A", "B", "c", "d", "e"]
+
+>> a[2..5] = %w{C D E} (Iguala los arrays a[2..5] (intervalo 2-5) al array ["C" "D" "E"]
+=> ["C", "D", "E"] 
+>> a 
+=> ["A", "B", "C", "D", "E"] 
+
+>> a[0,0] = [1,2,3] (Incluye el array en [1,2,3] en la posicion 0 del array que teníamos]
+=> [1, 2, 3] 
+>> a 
+=> [1, 2, 3, "A", "B", "C", "D", "E"] 
+
+>> a[0,2] = []  (Iguala las posiciones 0 y 1 del array a a un array vacío)
+=> [] 
+>> a 
+=> [3, "A", "B", "C", "D", "E"] 
+
+>> a[-1,1] = [ ’Z’ ] (Iguala la ultima posicion del array a 'Z')
+=> ["Z"] 
+>> a 
+=> [3, "A", "B", "C", "D", "Z"] 
+
+>> a[-2,2] = nil (Pone a nil las 2 ultimas posiciones del array)
+=> nil 
+>> a 
+=> [3, "A", "B", "C", nil] 
+
+39. ¿Cuál es el resultado de cada una de estas operaciones? 
+>> a = (1...4).to_a (Coloca en a el rango 1-4 con 4 no incluido, convertido a array)
+=> [1, 2, 3] 
+>> a = a + [4, 5] (Concatena al array, el nuevo array [4, 5]
+=> [1, 2, 3, 4, 5] 
+
+>> a += [[6, 7, 8]] (Concatena al array a el array [[6,7,8]], que será un elemento en el array a
+=> [1, 2, 3, 4, 5, [6, 7, 8]] 
+
+>> a = a + 9 
+No se puede operar, dado que a es un array y 9 un fixnum, no esta la operación + definida
+
+40. ¿Cuál es el resultado de cada una de estas operaciones? 
+>> x = %w{a b c b a} (Almacena en x un array con los elementos a b c b a)
+=> ["a", "b", "c", "b", "a"] 
+
+>> x = x - %w{b c d} (Elimina los elementos b c d del array, pero no tienen que estar ordenados ni aparecer todos")
+=> ["a", "a"]
+
+41. ¿Cuál es el resultado de cada una de estas operaciones? 
+>> z = [0]*8 (Será un array de 8 posiciones inicializadas a 0)
+=> [0, 0, 0, 0, 0, 0, 0, 0] 
+
+
+42. ¿Cuál es el resultado de cada una de estas operaciones? 
+>> a = [] 
+=> [] 
+>> a << 1 (Introduce por el final el valor 1 al array)
+=> [1]
+>> a << 2 << 3 (Introduce los valores 2 y 3 por el final)
+=> [1, 2, 3]
+>> a << [4, 5, 6] (Introduce el array [4, 5, 6] en la ultima posicion del array
+=> [1, 2, 3, [4, 5, 6]]
+>> a.concat [7, 8] (concatena el array tal y como lo haria a << 7 << 8, introduciendo los elementos del array por el final
+=> [1, 2, 3, [4, 5, 6], 7, 8] 
+
+43. ¿Cuál es el resultado de cada una de estas operaciones? 
+>> a = [1, 1, 2, 2, 3, 3, 4] 
+=> [1, 1, 2, 2, 3, 3, 4] 
+>> b = [5, 5, 4, 4, 3, 3, 2] 
+=> [5, 5, 4, 4, 3, 3, 2] 
+>> c = a | b 
+=> [1, 2, 3, 4, 5] 
+>> d = b | a 
+=> 
+>> e = a & b 
+=> 
+>> f = b & a 
+=> 
+
+44. ¿Qué resultados dan las siguientes operaciones? 
+>> a = 1..10 
+=> 1..10 
+>> a.class 
+=> Range 
+>> a.to_a 
+=> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+
+>> b = 1...10 
+=> 1....10 
+>> b.to_a 
+=> [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+>> b.include? 10 
+=> false
+>> b.include? 8 
+=> true
+>> b.step(2) {|x| print "#{x} " } 
+=> 13579 => 1...10 
+>> 1..3.to_a 
+=> NoMethodError: undefined method `to_a' for 3:Fixnum
+Por no almacenar el rango en una variable no se puede crear el array
+
+
+45. ¿Qué resultados dan las siguientes operaciones? 
+>> r = 0...100 
+=> 0....100 
+>> r.member? 50 
+=> true
+>> r.include? 99.9 
+=> true
+>> r.member? 99.9 
+=> true
+
+46. ¿Qué resultados dan las siguientes operaciones? 
+>> true.class 
+=> 
+>> false.class 
+=> 
+>> puts "hello" if 0 
+=> 
+>> puts "hello" if nil 
+=> 
+>> puts "hello" if "" 
+=> 
+
+47. ¿Qué resultados dan las siguientes operaciones? 
+>> x = :sym 
+=> :sym 
+>> x.class 
+=> Symbol
+>> x == ’sym’ 
+=> false
+>> x == :sym 
+=> true
+>> z = :’a long symbol’ 
+=> :"a long symbol" 
+>> z.class 
+=> Symbol
+>> x == ’sym’.to_sym 
+=> true
+>> x.to_s == ’sym’ 
+=> true
+
+48. ¿Qué resultados se dan? 
+>> s = "Ruby" 
+=> "Ruby" 
+5>> t = s 
+=> "Ruby" 
+>> t[-1] = "" 
+=> "" 
+>> print s 
+>> t = "Java" 
+=> "Java" 
+>> print s, t 
+
+49. ¿Cuál es el resultado? 
+>> "%d %s" % [3, "rubies"] 
+=> 
+
+50. ¿Cuáles son los resultados? 
+>> x, y = 4, 5 
+=>[4, 5] 
+
+>> z = x > y ? x : y 
+=> 5
+
+>> x,y,z = [1,2,3] (Asignación múltiple) 
+=> [1,2,3]
+
+51. ¿Qué resultados dan las siguientes operaciones? 
+>> x = { :a => 1, :b => 2 } (crea un hash)
+=> {:b=>2, :a=>1} 
+>> x.keys 
+=> [:a, :b]
+>> x.values 
+=> [1,2]
+>> x[:c] = 3 
+=> 3 
+>> x 
+=> {:a=>1, :b=>2, :c=>3} 
+
+>> x.delete(’a’) 
+=> nil 
+>> x 
+=> 
+
+>> x.delete(:a) 
+=> 1 
+>> x 
+=> {:b=>2, :c=>3} 
+
+
+>> x = { :a => 1, :b => 2, :c => 4 } 
+=> {:b=>2, :c=>4, :a=>1} 
+>> x.delete_if { |k,v| v % 2 == 0 } 
+=> {:a=>1} 
+
+
+52. ¿Qué hace yield 4, 5? 
+
+53. ¿Qué hace la siguiente sentencia? counts = Hash.new(0) ¿Qué diferencia hay con la asignación 
+counts = {}? 
+
+54. ¿Qué retorna esta expresión? ’hello world, hello LPP’.scan /\w+/ 
+Un array 
+
+55. Explique que hacen estas sentencias: 
+c = { :a => 3, :b => 2, :c => 1 } 
+c.keys.sort.each { |k| puts c[k] } 
+Crea un hash y muestra el valor de sus claves
+
+56. Escriba la dirección del repositorio que ha creado en GitHub en la tarea habilitada en el campus 
+virtual. 
+
+57. Cierre la sesión
